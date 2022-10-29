@@ -20,6 +20,8 @@ class Navv extends StatelessWidget {
             child: Text('Welcome'))
       ]),
       appBar: AppBar(title: Text('Next Page')),
+
+      home: IntroScreen(),
     );
   }
 }
