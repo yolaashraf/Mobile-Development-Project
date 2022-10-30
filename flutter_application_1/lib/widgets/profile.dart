@@ -75,7 +75,7 @@ class ProfileState extends State<Profile> {
                   ),
                   SizedBox(
                     width: 200,
-                    child: Text('Password' + "${useres().users[0][3]}",
+                    child: Text('Password: ' + "${useres().users[0][3]}",
                         style: TextStyle(fontWeight: FontWeight.w600)),
                   ),
                 ],
