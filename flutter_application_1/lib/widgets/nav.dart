@@ -3,8 +3,10 @@ import 'package:go_router/go_router.dart';
 import '/main.dart';
 
 import './admin.dart';
+import './editProfile.dart';
 import './history.dart';
 import './home.dart';
+import './profile.dart';
 
 class MyApp extends StatelessWidget {
   MyApp({Key? key}) : super(key: key);
@@ -16,6 +18,10 @@ class MyApp extends StatelessWidget {
       GoRoute(
         routes: <GoRoute>[
           GoRoute(
+            path: 'Profile',
+            builder: (BuildContext context, GoRouterState state) => Profile(),
+          ),
+          GoRoute(
             path: 'History',
             builder: (BuildContext context, GoRouterState state) => History(),
           ),
@@ -23,6 +29,11 @@ class MyApp extends StatelessWidget {
             path: 'AddEvents',
             builder: (BuildContext context, GoRouterState state) => Admin(),
           ),
+          GoRoute(
+            path: 'EditProfile',
+            builder: (BuildContext context, GoRouterState state) =>
+                EditProfile(),
+          )
         ],
         path: '/',
         builder: (BuildContext context, GoRouterState state) => Home(),
