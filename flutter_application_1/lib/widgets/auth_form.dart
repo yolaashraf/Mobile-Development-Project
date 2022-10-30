@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_project/model/user.dart';
-import 'package:mobile_project/screens/intro_screen.dart';
-import 'package:mobile_project/screens/register_screen.dart';
+import '../model/user.dart';
+import '../screens/intro_screen.dart';
+import 'package:go_router/go_router.dart';
+import '../screens/register_screen.dart';
+import './home.dart';
 
 class AuthForm extends StatefulWidget {
   const AuthForm({super.key});
@@ -48,42 +50,44 @@ class _AuthFormState extends State<AuthForm> {
                 },
                 onSaved: (val) => setState(() => _user.password = val!),
               ),
-              
               Container(
                 padding: const EdgeInsets.symmetric(
                     vertical: 16.0, horizontal: 16.0),
                 child: ElevatedButton(
                   child: const Text('Login'),
                   onPressed: () {
-                    final form = _formKey.currentState;
+                    /* final form = _formKey.currentState;
                     if (form!.validate()) {
                       form.save();
                       print('saving user data');
                       _user.save();
+
                       // _showDialog(context);
-                    }
+                    } */
+                    context.go('/home');
+                    Navigator.push(context, MaterialPageRoute(
+                      builder: ((context) {
+                        return Home();
+                      }),
+                    ));
                   },
-                  
                 ),
-                
               ),
-
               TextButton(
-                  style: TextButton.styleFrom(
-                    primary: Colors.black, // foreground
-                  ),
-                  child: Text('Don\'t have an account?'),
-                  onPressed: () {  Navigator.push(context, 
-                            MaterialPageRoute(builder: ((context) {
-                              return RegisterScreen();
-                            }),
-                            ));
-                            },
-                )
-
-               
+                style: TextButton.styleFrom(
+                  primary: Colors.black, // foreground
+                ),
+                child: Text('Don\'t have an account?'),
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(
+                    builder: ((context) {
+                      return RegisterScreen();
+                    }),
+                  ));
+                },
+              )
             ],
           ),
         ));
-        }
   }
+}

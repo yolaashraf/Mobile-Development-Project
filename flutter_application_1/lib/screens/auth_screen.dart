@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_project/widgets/auth_form.dart';
+import '../widgets/auth_form.dart';
 
 // enum AuthType { login, register }
 
@@ -43,7 +43,7 @@ class AuthScreen extends StatelessWidget {
                       Hero(
                         tag: 'logoAnimation',
                         child: Image.asset(
-                          'assets/download.png',
+                          '../assets/download.png',
                           height: 250,
                         ),
                       ),

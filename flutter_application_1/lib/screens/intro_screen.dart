@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_project/widgets/original_button.dart';
 
 import 'auth_screen.dart';
 
@@ -17,7 +16,7 @@ class IntroScreen extends StatelessWidget {
             Hero(
               tag: 'logoAnimation',
               child: Image.asset(
-                'assets/download.png', height: 300,
+                '../assets/download.png', height: 300,
                 fit: BoxFit.cover,
               ),
             ),

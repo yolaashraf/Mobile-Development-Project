@@ -21,7 +21,7 @@ class Navv extends StatelessWidget {
       ]),
       appBar: AppBar(title: Text('Next Page')),
 
-      home: IntroScreen(),
+      //home: IntroScreen(),
     );
   }
 }

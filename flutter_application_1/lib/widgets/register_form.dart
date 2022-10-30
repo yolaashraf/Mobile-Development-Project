@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_project/model/user.dart';
-import 'package:mobile_project/screens/auth_screen.dart';
-import 'package:mobile_project/screens/intro_screen.dart';
+import '../model/user.dart';
+import '../screens/auth_screen.dart';
+import '../screens/intro_screen.dart';
 
 class RegisterForm extends StatefulWidget {
   const RegisterForm({super.key});
@@ -68,7 +68,7 @@ class _RegisterForm extends State<RegisterForm> {
               //   },
               //   onSaved: (val) => setState(() => _user.Mobile = val as int),
               // ),
-              
+
               Container(
                 padding: const EdgeInsets.symmetric(
                     vertical: 16.0, horizontal: 16.0),
@@ -81,23 +81,18 @@ class _RegisterForm extends State<RegisterForm> {
                       // print('saving user data');
                       // _user.save();
                       // _showDialog(context);
-                                          // Navigator.pop(context);
-                       Navigator.push(context, 
-                            MaterialPageRoute(builder: ((context) {
-                              return AuthScreen();
-                            }),
-                            ));                    
-
+                      // Navigator.pop(context);
+                      Navigator.push(context, MaterialPageRoute(
+                        builder: ((context) {
+                          return AuthScreen();
+                        }),
+                      ));
                     }
-
                   },
-                  
                 ),
-                
               ),
-               
             ],
           ),
         ));
-        }
   }
+}

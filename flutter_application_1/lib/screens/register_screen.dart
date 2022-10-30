@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_project/widgets/register_form.dart';
+import '../widgets/register_form.dart';
 
 // enum AuthType { login, register }
 
@@ -7,7 +7,6 @@ class RegisterScreen extends StatelessWidget {
   const RegisterScreen({super.key});
 
   // final AuthType authType;
-
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +42,7 @@ class RegisterScreen extends StatelessWidget {
                       Hero(
                         tag: 'logoAnimation',
                         child: Image.asset(
-                          'assets/download.png',
+                          '../assets/download.png',
                           height: 250,
                         ),
                       ),
@@ -53,8 +52,6 @@ class RegisterScreen extends StatelessWidget {
               ],
             ),
             RegisterForm(),
-
-            
           ],
         ),
       ),

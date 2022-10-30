@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/screens/intro_screen.dart';
 import 'package:go_router/go_router.dart';
 import '/main.dart';
 
@@ -7,6 +8,7 @@ import './editProfile.dart';
 import './history.dart';
 import './home.dart';
 import './profile.dart';
+import '../screens/intro_screen.dart';
 
 class MyApp extends StatelessWidget {
   MyApp({Key? key}) : super(key: key);
@@ -33,10 +35,14 @@ class MyApp extends StatelessWidget {
             path: 'EditProfile',
             builder: (BuildContext context, GoRouterState state) =>
                 EditProfile(),
+          ),
+          GoRoute(
+            path: 'Home',
+            builder: (BuildContext context, GoRouterState state) => Home(),
           )
         ],
         path: '/',
-        builder: (BuildContext context, GoRouterState state) => Home(),
+        builder: (BuildContext context, GoRouterState state) => IntroScreen(),
       ),
     ],
   );
