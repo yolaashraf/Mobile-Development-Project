@@ -121,7 +121,9 @@ class EditProfileState extends State<EditProfile> {
             height: 20,
           ),
           TextButton(
-              onPressed: () {},
+              onPressed: () {
+                context.go('/profile');
+              },
               child: Text(
                 'Done',
                 style: TextStyle(color: Colors.deepPurple),

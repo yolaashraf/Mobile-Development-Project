@@ -155,7 +155,9 @@ class Home extends StatelessWidget {
                       Text('Start Date'),
                       Text('End Date'),
                       ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          context.go('/TripDetails');
+                        },
                         child: Text(
                           'Book',
                           style: TextStyle(
@@ -192,7 +194,7 @@ class Home extends StatelessWidget {
                         Text('End Date'),
                         ElevatedButton(
                           onPressed: () {
-                            // context.go('/page2');
+                            context.go('/TripDetails');
                           },
                           child: Text(
                             'Book',
@@ -235,7 +237,7 @@ class Home extends StatelessWidget {
           ListTile(
             title: Text('Account'),
             onTap: () {
-              context.go('Profile');
+              context.go('/Profile');
             },
           ),
           ListTile(

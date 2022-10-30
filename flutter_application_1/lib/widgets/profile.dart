@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import '/data/users.dart';
+import '../data/users.dart';
 
 class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);

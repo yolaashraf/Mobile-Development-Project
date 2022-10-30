@@ -8,6 +8,7 @@ import './editProfile.dart';
 import './history.dart';
 import './home.dart';
 import './profile.dart';
+import './tripDetails.dart';
 import '../screens/intro_screen.dart';
 
 class MyApp extends StatelessWidget {
@@ -35,6 +36,11 @@ class MyApp extends StatelessWidget {
             path: 'EditProfile',
             builder: (BuildContext context, GoRouterState state) =>
                 EditProfile(),
+          ),
+          GoRoute(
+            path: 'TripDetails',
+            builder: (BuildContext context, GoRouterState state) =>
+                TripDetails(),
           ),
           GoRoute(
             path: 'Home',
