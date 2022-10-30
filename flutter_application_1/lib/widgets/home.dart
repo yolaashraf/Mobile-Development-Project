@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import '../screens/auth_screen.dart';
+import '../screens/intro_screen.dart';
 
 class Home extends StatelessWidget {
   Home({Key? key}) : super(key: key);
@@ -251,7 +253,15 @@ class Home extends StatelessWidget {
             onTap: () {
               context.go('/History');
             },
-          )
+          ),
+          ListTile(
+            title: Text('Logout'),
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: ((context) {
+                return AuthScreen();
+              })));
+            },
+          ),
         ],
       )),
       appBar: AppBar(

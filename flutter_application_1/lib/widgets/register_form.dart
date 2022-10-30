@@ -91,6 +91,19 @@ class _RegisterForm extends State<RegisterForm> {
                   },
                 ),
               ),
+              TextButton(
+                style: TextButton.styleFrom(
+                  primary: Colors.black, // foreground
+                ),
+                child: Text('Already have an account?'),
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(
+                    builder: ((context) {
+                      return AuthScreen();
+                    }),
+                  ));
+                },
+              )
             ],
           ),
         ));

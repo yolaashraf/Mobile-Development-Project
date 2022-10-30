@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/screens/intro_screen.dart';
+import 'package:flutter_application_1/widgets/auth_form.dart';
 import 'package:go_router/go_router.dart';
 import '/main.dart';
 
