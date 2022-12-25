@@ -42,7 +42,7 @@ class RegisterScreen extends StatelessWidget {
                       Hero(
                         tag: 'logoAnimation',
                         child: Image.asset(
-                          '../assets/download.png',
+                          'assets/download.png',
                           height: 250,
                         ),
                       ),

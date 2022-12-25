@@ -4,6 +4,8 @@ import 'package:intl/intl.dart';
 
 import 'widgets/nav.dart';
 
+import '/screens/intro_screen.dart';
+
 void main() {
   runApp(MyApp());
 }

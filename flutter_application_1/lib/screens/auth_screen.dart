@@ -8,7 +8,6 @@ class AuthScreen extends StatelessWidget {
 
   // final AuthType authType;
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,7 +42,7 @@ class AuthScreen extends StatelessWidget {
                       Hero(
                         tag: 'logoAnimation',
                         child: Image.asset(
-                          '../assets/download.png',
+                          'assets/download.png',
                           height: 250,
                         ),
                       ),
@@ -54,8 +53,6 @@ class AuthScreen extends StatelessWidget {
             ),
             // AuthForm(authType: authType),
             AuthForm(),
-
-
           ],
         ),
       ),

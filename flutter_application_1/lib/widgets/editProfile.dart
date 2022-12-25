@@ -28,7 +28,7 @@ class EditProfileState extends State<EditProfile> {
               Container(
                 child: Icon(
                   Icons.person,
-                  color: Colors.deepPurple,
+                  color: Colors.blue,
                   size: 100,
                 ),
                 decoration: BoxDecoration(
@@ -48,7 +48,7 @@ class EditProfileState extends State<EditProfile> {
                 children: [
                   Icon(
                     Icons.person,
-                    color: Colors.deepPurple,
+                    color: Colors.blue,
                     size: 30,
                   ),
                   SizedBox(
@@ -66,7 +66,7 @@ class EditProfileState extends State<EditProfile> {
                 children: [
                   Icon(
                     Icons.password,
-                    color: Colors.deepPurple,
+                    color: Colors.blue,
                     size: 30,
                   ),
                   SizedBox(
@@ -84,7 +84,7 @@ class EditProfileState extends State<EditProfile> {
                 children: [
                   Icon(
                     Icons.phone,
-                    color: Colors.deepPurple,
+                    color: Colors.blue,
                     size: 30,
                   ),
                   SizedBox(
@@ -102,7 +102,7 @@ class EditProfileState extends State<EditProfile> {
                 children: [
                   Icon(
                     Icons.email,
-                    color: Colors.deepPurple,
+                    color: Colors.blue,
                     size: 30,
                   ),
                   SizedBox(
@@ -126,7 +126,7 @@ class EditProfileState extends State<EditProfile> {
               },
               child: Text(
                 'Done',
-                style: TextStyle(color: Colors.deepPurple),
+                style: TextStyle(color: Colors.blue),
               ))
         ],
       ),

@@ -181,37 +181,6 @@ class Home extends StatelessWidget {
                 SizedBox(
                   height: 10,
                 ),
-                Row(
-                  children: [
-                    Padding(padding: EdgeInsets.all(10)),
-                    Image.asset(
-                      'assets/img1.jpeg',
-                      scale: 1.4,
-                    ),
-                    SizedBox(height: 30, width: 30),
-                    Column(
-                      children: [
-                        Text('Location'),
-                        Text('Start Date'),
-                        Text('End Date'),
-                        ElevatedButton(
-                          onPressed: () {
-                            context.go('/TripDetails');
-                          },
-                          child: Text(
-                            'Book',
-                            style: TextStyle(
-                              color: Colors.black,
-                            ),
-                          ),
-                          style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.white,
-                              side: BorderSide(color: Colors.black)),
-                        )
-                      ],
-                    )
-                  ],
-                ),
                 SizedBox(
                   height: 20,
                 )
@@ -252,6 +221,12 @@ class Home extends StatelessWidget {
             title: Text('My History'),
             onTap: () {
               context.go('/History');
+            },
+          ),
+          ListTile(
+            title: Text('Favourite'),
+            onTap: () {
+              // context.go('/History');
             },
           ),
           ListTile(
