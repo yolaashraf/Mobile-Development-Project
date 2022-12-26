@@ -64,7 +64,7 @@ class _AuthFormState extends State<AuthForm> {
 
                       // _showDialog(context);
                     } */
-                    context.go('/home');
+                    // GoRouter.of(context).go('/home', extra: null);
                     Navigator.push(context, MaterialPageRoute(
                       builder: ((context) {
                         return Home();
