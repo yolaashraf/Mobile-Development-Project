@@ -75,7 +75,7 @@ class _AuthFormState extends State<AuthForm> {
               ),
               TextButton(
                 style: TextButton.styleFrom(
-                  primary: Colors.black, // foreground
+                  foregroundColor: Colors.black, // foreground
                 ),
                 child: Text('Don\'t have an account?'),
                 onPressed: () {

@@ -29,8 +29,7 @@ class IntroScreen extends StatelessWidget {
                   height: 50.0,
                   child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        primary: Colors.white, // background
-                        onPrimary: Colors.lightBlue, // foreground
+                        foregroundColor: Colors.lightBlue, backgroundColor: Colors.white, // foreground
                       ),
                       child: Text('Get Started'),
                       onPressed: () {

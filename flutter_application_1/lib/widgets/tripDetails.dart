@@ -166,7 +166,7 @@ class _TripDetailsState extends State<TripDetails> {
                 },
                 child: Icon(Icons.favorite, size: 20.0, color: favcolor),
                 style: ElevatedButton.styleFrom(
-                    primary: Color.fromARGB(237, 255, 255, 255)),
+                    backgroundColor: Color.fromARGB(237, 255, 255, 255)),
               ),
               Container(
                 width: 250,
@@ -174,7 +174,7 @@ class _TripDetailsState extends State<TripDetails> {
                 child: ElevatedButton(
                   onPressed: () {},
                   child: Text('Book Now '),
-                  style: ElevatedButton.styleFrom(primary: Colors.blue[900]),
+                  style: ElevatedButton.styleFrom(backgroundColor: Colors.blue[900]),
                 ),
               )
             ],

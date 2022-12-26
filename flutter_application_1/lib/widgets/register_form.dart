@@ -93,7 +93,7 @@ class _RegisterForm extends State<RegisterForm> {
               ),
               TextButton(
                 style: TextButton.styleFrom(
-                  primary: Colors.black, // foreground
+                  foregroundColor: Colors.black, // foreground
                 ),
                 child: Text('Already have an account?'),
                 onPressed: () {
