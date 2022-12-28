@@ -1,6 +1,6 @@
 // import 'package:buy_it/constants.dart';
 // import 'package:buy_it/screens/admin/OrdersScreen.dart';
-import '/screens/admin/addProduct.dart';
+import 'addTrip.dart';
 // import 'package:buy_it/screens/admin/manageProduct.dart';
 import 'package:flutter/material.dart';
 
@@ -21,9 +21,9 @@ class AdminHome extends StatelessWidget {
           ),
           ElevatedButton(
             onPressed: () {
-              Navigator.pushNamed(context, AddProduct.id);
+              Navigator.pushNamed(context, AddTrip.id);
             },
-            child: Text('Add Product'),
+            child: Text('Add Trip'),
           ),
           ElevatedButton(
             onPressed: () {

@@ -6,7 +6,7 @@ import 'package:intl/intl.dart';
 import 'screens/admin/adminHome.dart';
 import 'widgets/nav.dart';
 
-import '/screens/admin/addProduct.dart';
+import 'screens/admin/addTrip.dart';
 import '/screens/admin/manageProducts.dart';
 
 import '/screens/intro_screen.dart';
@@ -47,7 +47,7 @@ class MyApp extends StatelessWidget {
                 // SignupScreen.id: (context) => SignupScreen(),
                 // HomePage.id: (context) => HomePage(),
                 AdminHome.id: (context) => AdminHome(),
-                AddProduct.id: (context) => AddProduct(),
+                AddTrip.id: (context) => AddTrip(),
                 ManageProducts.id: (context) => ManageProducts(),
 
               },
