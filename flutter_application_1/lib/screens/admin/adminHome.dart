@@ -1,10 +1,12 @@
 // import 'package:buy_it/constants.dart';
 // import 'package:buy_it/screens/admin/OrdersScreen.dart';
+import 'package:go_router/go_router.dart';
+
 import 'addTrip.dart';
 // import 'package:buy_it/screens/admin/manageProduct.dart';
 import 'package:flutter/material.dart';
 
-import 'manageProducts.dart';
+import 'editTrip.dart';
 
 class AdminHome extends StatelessWidget {
   static String id = 'AdminHome';
@@ -20,23 +22,14 @@ class AdminHome extends StatelessWidget {
             width: double.infinity,   //width el col = width elscreen
           ),
           ElevatedButton(
-            onPressed: () {
-              Navigator.pushNamed(context, AddTrip.id);
-            },
-            child: Text('Add Trip'),
+              onPressed: () => context.go('AddTrip'),
+              child: Text('Add Trip'),
           ),
           ElevatedButton(
-            onPressed: () {
-              Navigator.pushNamed(context, ManageProducts.id);
-            },
-            child: Text('Edit Product'),
+              onPressed: () => context.go('EditTrip'), 
+              child: Text('Edit Trip'),
           ),
-          // ElevatedButton(
-          //   onPressed: () {
-          //     Navigator.pushNamed(context, OrdersScreen.id);
-          //   },
-          //   child: Text('View orders'),
-          // )
+          
         ],
       ),
     );

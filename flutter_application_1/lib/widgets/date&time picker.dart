@@ -18,9 +18,12 @@ class _DateTimePickerState extends State<DateTimePicker> {
                   
                   Column(
                     children: [
-                      Text(
-                        '${dateTime.day}/${dateTime.month}/${dateTime.year} - ${dateTime.hour}:${dateTime.minute}',
-                        style: const TextStyle(fontSize: 20),
+                      Padding(
+                        padding: const EdgeInsets.all(15.0),
+                        child: Text(
+                          '${dateTime.day}/${dateTime.month}/${dateTime.year} - ${dateTime.hour}:${dateTime.minute}',
+                          style: const TextStyle(fontSize: 20 , color: Colors.black ),
+                        ),
                       ),
                       
                       ElevatedButton(

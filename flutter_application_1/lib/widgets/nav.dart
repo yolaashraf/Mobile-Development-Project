@@ -11,6 +11,10 @@ import './home.dart';
 import './profile.dart';
 import './tripDetails.dart';
 import '../screens/intro_screen.dart';
+import '../screens/admin/adminHome.dart';
+
+import '../screens/admin/addTrip.dart';
+import '../screens/admin/editTrip.dart';
 
 class MyApp extends StatelessWidget {
   MyApp({Key? key}) : super(key: key);
@@ -44,8 +48,16 @@ class MyApp extends StatelessWidget {
                 TripDetails(),
           ),
           GoRoute(
-            path: 'Home',
-            builder: (BuildContext context, GoRouterState state) => Home(),
+            path: 'AddTrip',
+            builder: (BuildContext context, GoRouterState state) => AddTrip(),
+          ),
+          GoRoute(
+            path: 'AdminHome',
+            builder: (BuildContext context, GoRouterState state) =>AdminHome(),
+          ), 
+          GoRoute(
+            path: 'EditTrip',
+            builder: (BuildContext context, GoRouterState state) =>EditTrip(),
           )
         ],
         path: '/',
