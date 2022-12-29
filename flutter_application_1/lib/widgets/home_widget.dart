@@ -1,0 +1,44 @@
+import 'package:flutter/src/widgets/container.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import '../services/trip_services.dart';
+import '../model/trip.dart';
+import 'package:riverpod/riverpod.dart';
+import 'package:flutter/material.dart';
+import 'trip_row_wigdet.dart';
+
+class homeWidget extends StatefulWidget {
+  const homeWidget({super.key});
+
+  @override
+  State<homeWidget> createState() => _homeWidgetState();
+}
+
+class _homeWidgetState extends State<homeWidget> {
+  @override
+  Widget build(BuildContext context) {
+    return StreamBuilder<List<Trip>>(
+      stream: Trip_Service().viewTrips(),
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          final allTrips = snapshot.data!;
+          return ListView.builder(
+              itemCount: allTrips.length,
+              itemBuilder: (context, index) {
+                return customeRow(
+                  imgpath: allTrips[index].img,
+                  triplocation: allTrips[index].location,
+                  sDate: allTrips[index].startDate,
+                  eDate: allTrips[index].endDate,
+                  tripid: allTrips[index].tripid,
+                  price: allTrips[index].price,
+                  tripdescription: allTrips[index].description,
+                  tripname: allTrips[index].tripName,
+                );
+              });
+        } else {
+          return const Center(child: CircularProgressIndicator());
+        }
+      },
+    );
+  }
+}
