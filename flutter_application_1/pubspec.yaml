@@ -47,6 +47,8 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_launcher_icons: "^0.9.2"
+  image_picker: ^0.8.6
+
 
 flutter_icons:
   android: true
@@ -80,6 +82,7 @@ flutter:
     - assets/download.png
     - assets/circle.png
     - assets/mountain.png
+    - assets/travel_plane_corona.png
 
 
 
