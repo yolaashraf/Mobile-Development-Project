@@ -78,7 +78,7 @@ class AuthForm extends ConsumerWidget {
                       allUsers.when(
                           data: (users) => users.forEach(
                                 (user) {
-                                  print("HELLLOOOOO  " + newEmail);
+                                  // print("HELLLOOOOO  " + newEmail);
                                   if (newEmail == user.email &&
                                       newPasswprd == user.password) {
                                     check = true;

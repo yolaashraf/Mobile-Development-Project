@@ -10,8 +10,9 @@ import 'package:group_button/group_button.dart';
 import '../../services/book_services.dart';
 import 'package:d_info/d_info.dart';
 import '../../services/trip_services.dart';
+import '../../services/fav_services.dart';
 
-late String id;
+late String userid;
 
 class TripDetails extends StatefulWidget {
   TripDetails({
@@ -60,6 +61,7 @@ class _TripDetailsState extends State<TripDetails> {
   bool BookPress = true;
 
   int selectionCount = 0;
+  late var id;
 
   // final tripimg;
   // final colorStateProvider = StateProvider<Color>((ref) => Colors.green);
@@ -80,7 +82,7 @@ class _TripDetailsState extends State<TripDetails> {
         children: [
           Consumer(
             builder: (context, ref, child) {
-              id = ref.watch(curentUserProvider).value!.userid;
+              userid = ref.watch(curentUserProvider).value!.userid;
               return Container();
             },
           ),
@@ -209,6 +211,16 @@ class _TripDetailsState extends State<TripDetails> {
                       favcolor = Colors.black;
                       favpressed = false;
                     } else if (favpressed == false) {
+                      Fav_Service().AddFav(
+                          tripId: widget.tripid,
+                          userId: userid,
+                          tripName: widget.tripname,
+                          eDate: widget.edate,
+                          price: widget.pricee,
+                          sDate: widget.tripsdate,
+                          tripdescription: widget.tripdescription,
+                          triplocation: widget.triplocation,
+                          tripImg: "assets/img1.jpeg");
                       favcolor = Colors.red;
                       favpressed = true;
                     }

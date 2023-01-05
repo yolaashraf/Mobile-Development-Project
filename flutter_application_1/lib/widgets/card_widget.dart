@@ -2,9 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class cardWidget extends StatelessWidget {
-  final String imgpath;
-  final String tripName;
-  cardWidget({Key? key, required this.imgpath, required this.tripName})
+  final String imgpath; //
+  final String tripId; //
+  final String tripdescription;
+  final String price;
+  final String triplocation;
+  final String tripname;
+  final String sDate;
+  final String eDate;
+
+  cardWidget(
+      {Key? key,
+      required this.imgpath,
+      required this.tripId,
+      required this.price,
+      required this.eDate,
+      required this.sDate,
+      required this.tripdescription,
+      required this.triplocation,
+      required this.tripname})
       : super(key: key);
 
   @override
@@ -36,7 +52,7 @@ class cardWidget extends StatelessWidget {
                         height: 10,
                       ), //SizedBox
                       Text(
-                        tripName,
+                        tripname,
                         style: TextStyle(
                           fontSize: 30,
                           color: Colors.blueAccent,
@@ -48,14 +64,17 @@ class cardWidget extends StatelessWidget {
                         child: Row(
                           children: [
                             IconButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  context.go('/fav');
+                                },
                                 icon: Icon(
                                   Icons.favorite,
                                   color: Colors.red,
                                 )),
                             ElevatedButton(
                               onPressed: () {
-                                context.go('/TripDetails');
+                                context.go(
+                                    '/TripDetails/$tripId/$tripdescription/$price/$triplocation/$tripname/$sDate/$eDate/');
                               },
                               style: ButtonStyle(
                                   backgroundColor:

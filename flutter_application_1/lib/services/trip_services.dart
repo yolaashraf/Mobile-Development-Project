@@ -29,4 +29,20 @@ class Trip_Service {
         (snapshot) =>
             snapshot.docs.map((doc) => Trip.fromJson(doc.data())).toList());
   }
+
+  // Stream<List<Trip>> viewTripData(String data,id) {
+  //   // print(FirebaseFirestore.instance
+  //   //     .collection('fav')
+  //   //     // .where("userId", isEqualTo: userId)
+  //   //     .snapshots()
+  //   //     .forEach((element) {
+  //   //   print(element.docs.map((e) => e.data()));
+  //   // }));
+  //   return FirebaseFirestore.instance
+  //       .collection('trips')
+  //       .where(data, isEqualTo: data)
+  //       .snapshots()
+  //       .map((snapshot) =>
+  //           snapshot.docs.map((doc) => Trip.fromJson(doc.data())).toList());
+  // }
 }
