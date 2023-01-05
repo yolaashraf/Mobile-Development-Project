@@ -7,11 +7,27 @@ import '../../services/book_services.dart';
 import '../../model/book.dart';
 
 class History extends ConsumerWidget {
+  Widget myWidgets(allUserBooking, index) {
+    return Column(
+      children: [
+        SizedBox(height: 20),
+        HistoryRow(
+            TripName: allUserBooking[index].tripName,
+            price: allUserBooking[index].price,
+            location: allUserBooking[index].location,
+            sDate: allUserBooking[index].startDate,
+            eDate: allUserBooking[index].endDate,
+            state: '${data().historyData[0][5]}')
+      ],
+    );
+  }
+
   History({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final String currentuserid = ref.watch(curentUserProvider).value!.userid;
     return Scaffold(
+      backgroundColor: Color.fromARGB(255, 243, 243, 243),
       body: StreamBuilder<List<Book>>(
         stream: Book_Service().readUserBooking(),
         builder: (context, snapshot) {
@@ -22,13 +38,7 @@ class History extends ConsumerWidget {
                 itemCount: allUserBooking.length,
                 itemBuilder: (context, index) {
                   if (currentuserid == allUserBooking[index].userId) {
-                    return HistoryRow(
-                        TripName: allUserBooking[index].tripName,
-                        price: allUserBooking[index].price,
-                        location: allUserBooking[index].location,
-                        sDate: allUserBooking[index].startDate,
-                        eDate: allUserBooking[index].endDate,
-                        state: '${data().historyData[0][5]}');
+                    return myWidgets(allUserBooking, index);
                   } else if ((currentuserid != allUserBooking[index].userId)) {
                     return Container();
                   } else {

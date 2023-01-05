@@ -14,6 +14,22 @@ class homeWidget extends StatefulWidget {
 }
 
 class _homeWidgetState extends State<homeWidget> {
+  Widget myWidget(allTrips, index) {
+    return Column(
+      children: [
+        customeRow(
+            imgpath: allTrips[index].img,
+            triplocation: allTrips[index].location,
+            sDate: allTrips[index].startDate,
+            eDate: allTrips[index].endDate,
+            tripid: allTrips[index].tripid,
+            price: allTrips[index].price,
+            tripdescription: allTrips[index].description,
+            tripname: allTrips[index].tripName)
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<List<Trip>>(
@@ -24,16 +40,7 @@ class _homeWidgetState extends State<homeWidget> {
           return ListView.builder(
               itemCount: allTrips.length,
               itemBuilder: (context, index) {
-                return customeRow(
-                  imgpath: allTrips[index].img,
-                  triplocation: allTrips[index].location,
-                  sDate: allTrips[index].startDate,
-                  eDate: allTrips[index].endDate,
-                  tripid: allTrips[index].tripid,
-                  price: allTrips[index].price,
-                  tripdescription: allTrips[index].description,
-                  tripname: allTrips[index].tripName,
-                );
+                return myWidget(allTrips, index);
               });
         } else {
           return const Center(child: CircularProgressIndicator());

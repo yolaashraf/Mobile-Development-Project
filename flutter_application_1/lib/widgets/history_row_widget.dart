@@ -23,12 +23,17 @@ class HistoryRow extends StatelessWidget {
     return Column(
       children: [
         Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.all(Radius.circular(10)),
+              color: Colors.white,
+            ),
+            width: 350,
             padding: EdgeInsets.all(10),
-            color: Color.fromARGB(255, 223, 222, 222),
+            // color: Color.fromARGB(255, 223, 222, 222),
             child: Column(
               children: [
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
                       "$TripName",
@@ -45,29 +50,26 @@ class HistoryRow extends StatelessWidget {
                   ],
                 ),
                 Column(
-                  children: [SizedBox(height: 30)],
+                  children: [SizedBox(height: 10)],
                 ),
                 Column(
                   children: [
                     Row(
-                      children: [
-                        SizedBox(width: 50),
-                        Text(" Amount: " + price)
-                      ],
+                      children: [SizedBox(width: 0), Text(" Amount: " + price)],
                     ),
                     Row(children: [
-                      SizedBox(width: 50),
+                      // SizedBox(width: 0),
                       Text(" Location: " + location)
                     ]),
                     Row(
                       children: [
-                        SizedBox(width: 50),
+                        // SizedBox(width: 0),
                         Text(" Start Date: " + sDate)
                       ],
                     ),
                     Row(
                       children: [
-                        SizedBox(width: 50),
+                        // SizedBox(width: 0),
                         Text(" End Date: " + eDate)
                       ],
                     )
@@ -75,9 +77,9 @@ class HistoryRow extends StatelessWidget {
                 )
               ],
             )),
-        SizedBox(
-          height: 30,
-        )
+        // SizedBox(
+        //   height: 30,
+        // )
       ],
     );
   }
