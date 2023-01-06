@@ -1,30 +1,44 @@
-import 'package:flutter/material.dart';
+// import 'dart:js';
 
-class switchWidget extends StatefulWidget {
+import 'package:flutter/material.dart';
+import 'package:flutter_application_1/widgets/nav.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+class switchWidget extends ConsumerStatefulWidget {
+  late bool theme;
+
   @override
-  State<switchWidget> createState() => _switchWidgetState();
+  ConsumerState<switchWidget> createState() => _switchWidgetState();
 }
 
-class _switchWidgetState extends State<switchWidget> {
+class _switchWidgetState extends ConsumerState<switchWidget> {
   bool isSwitched = false;
-  String theme = 'Light theme';
+
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Text(theme),
+        Consumer(
+          builder: (context, ref, child) {
+            return Container();
+          },
+        ),
         Switch(
           value: isSwitched,
           onChanged: (value) {
             setState(() {
               if (!isSwitched) {
                 isSwitched = true;
-                theme = 'Dark Theme';
+                ref.read(themeProvider.notifier).state = true;
               } else if (isSwitched) {
-                theme = 'Light Theme';
+                ref.read(themeProvider.notifier).state = false;
+
+                widget.theme = false;
+
                 isSwitched = false;
               }
             });
+            print(isSwitched);
           },
           activeTrackColor: Colors.grey,
           activeColor: Colors.black,

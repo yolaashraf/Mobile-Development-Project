@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/screens/client/intro_screen.dart';
 import 'package:flutter_application_1/widgets/auth_form.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 // import 'package:flutter_application_1/widgets/auth_form.dart';
 import 'package:go_router/go_router.dart';
 import '/main.dart';
@@ -16,8 +17,15 @@ import '../screens/client/intro_screen.dart';
 import '../screens/client/auth_screen.dart';
 import '../screens/admin/addTrip.dart';
 import '../screens/admin/edit_trip.dart';
+import '../widgets/theme.dart';
 
-class MyApp extends StatelessWidget {
+import 'package:riverpod/riverpod.dart';
+
+final themeProvider = StateProvider<bool>(((ref) {
+  return false;
+}));
+
+class MyApp extends ConsumerWidget {
   MyApp({Key? key}) : super(key: key);
   static const String title = 'GoRouter Routes';
 
@@ -86,13 +94,15 @@ class MyApp extends StatelessWidget {
   );
 
   @override
-  Widget build(BuildContext context) => MaterialApp.router(
-        debugShowCheckedModeBanner: false,
-        routerDelegate: _router.routerDelegate,
-        routeInformationParser: _router.routeInformationParser,
-        routeInformationProvider: _router.routeInformationProvider,
-        themeMode: ThemeMode.light,
-        // theme: MyThemes.lightTheme,
-        // darkTheme: MyThemes.darkTheme,
-      );
+  Widget build(BuildContext context, WidgetRef ref) {
+    return MaterialApp.router(
+      debugShowCheckedModeBanner: false,
+      routerDelegate: _router.routerDelegate,
+      routeInformationParser: _router.routeInformationParser,
+      routeInformationProvider: _router.routeInformationProvider,
+      themeMode: ref.watch(themeProvider) ? ThemeMode.dark : ThemeMode.light,
+      theme: MyThemes.lightTheme,
+      darkTheme: MyThemes.darkTheme,
+    );
+  }
 }
