@@ -12,9 +12,15 @@ import 'package:d_info/d_info.dart';
 import '../../services/trip_services.dart';
 import '../../services/fav_services.dart';
 
+final favItemStateProvider = StateProvider<List<String>>(
+  (ref) {
+    List<String>? ids = [''];
+    return ids;
+  },
+);
 late String userid;
 
-class TripDetails extends StatefulWidget {
+class TripDetails extends ConsumerStatefulWidget {
   TripDetails({
     Key? key,
     required this.tripid,
@@ -24,6 +30,7 @@ class TripDetails extends StatefulWidget {
     required this.tripsdate,
     required this.edate,
     required this.pricee,
+    // required this.fav,
     // required this.tripimg
   }) : super(key: key);
 
@@ -34,12 +41,13 @@ class TripDetails extends StatefulWidget {
   final tripsdate;
   final edate;
   final pricee;
+  // final fav;
 
   @override
-  State<TripDetails> createState() => _TripDetailsState();
+  ConsumerState<TripDetails> createState() => _TripDetailsState();
 }
 
-class _TripDetailsState extends State<TripDetails> {
+class _TripDetailsState extends ConsumerState<TripDetails> {
   // List Tripinfo = data().historyData;
 
   Color colorr = Color.fromARGB(255, 193, 190, 190);
@@ -74,9 +82,13 @@ class _TripDetailsState extends State<TripDetails> {
 
   @override
   Widget build(BuildContext context) {
-    // final currentuser = ref.watch(curentUserProvider);
-    // final bookcolor = ref.watch(colorStateProvider);
-    // final booktext = ref.watch(textStateProvider);
+    setState(() {
+      if (ref.watch(favItemStateProvider).contains(widget.tripid)) {
+        favcolor = Colors.red;
+      } else if (!ref.watch(favItemStateProvider).contains(widget.tripid)) {
+        favcolor = Colors.black;
+      }
+    });
     return Scaffold(
       body: ListView(
         children: [
@@ -207,22 +219,27 @@ class _TripDetailsState extends State<TripDetails> {
               ElevatedButton(
                 onPressed: () {
                   setState(() {
-                    if (favpressed == true) {
+                    if (favcolor == Colors.red) {
+                      ref.watch(favItemStateProvider).remove(widget.tripid);
+                      // Fav_Service().delete(favId);
+                      // ref.watch(favItemStateProvider).clear();
                       favcolor = Colors.black;
-                      favpressed = false;
-                    } else if (favpressed == false) {
-                      Fav_Service().AddFav(
-                          tripId: widget.tripid,
-                          userId: userid,
-                          tripName: widget.tripname,
-                          eDate: widget.edate,
-                          price: widget.pricee,
-                          sDate: widget.tripsdate,
-                          tripdescription: widget.tripdescription,
-                          triplocation: widget.triplocation,
-                          tripImg: "assets/img1.jpeg");
+                    } else if (favcolor == Colors.black) {
+                      ref.watch(favItemStateProvider).add(widget.tripid);
+
+                      // Fav_Service().AddFav(
+                      //     tripId: widget.tripid,
+                      //     userId: userid,
+                      //     tripName: widget.tripname,
+                      //     eDate: widget.edate,
+                      //     price: widget.pricee,
+                      //     sDate: widget.tripsdate,
+                      //     tripdescription: widget.tripdescription,
+                      //     triplocation: widget.triplocation,
+                      //     tripImg: "assets/img1.jpeg");
+                      // favpressed = true;
+
                       favcolor = Colors.red;
-                      favpressed = true;
                     }
                   });
                 },

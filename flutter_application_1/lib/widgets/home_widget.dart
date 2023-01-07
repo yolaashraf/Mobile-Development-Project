@@ -32,20 +32,35 @@ class _homeWidgetState extends State<homeWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder<List<Trip>>(
-      stream: Trip_Service().viewTrips(),
-      builder: (context, snapshot) {
-        if (snapshot.hasData) {
-          final allTrips = snapshot.data!;
-          return ListView.builder(
-              itemCount: allTrips.length,
-              itemBuilder: (context, index) {
-                return myWidget(allTrips, index);
-              });
-        } else {
-          return const Center(child: CircularProgressIndicator());
-        }
-      },
+    return Column(
+      children: [
+        SizedBox(height: 15),
+        Row(
+          children: [
+            SizedBox(width: 20),
+            Text(
+              'Up Comming Events',
+              style: TextStyle(fontWeight: FontWeight.w800, fontSize: 25),
+            ),
+          ],
+        ),
+        Flexible(
+            child: StreamBuilder<List<Trip>>(
+          stream: Trip_Service().viewTrips(),
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              final allTrips = snapshot.data!;
+              return ListView.builder(
+                  itemCount: allTrips.length,
+                  itemBuilder: (context, index) {
+                    return myWidget(allTrips, index);
+                  });
+            } else {
+              return const Center(child: CircularProgressIndicator());
+            }
+          },
+        ))
+      ],
     );
   }
 }
