@@ -70,6 +70,9 @@ class AuthForm extends ConsumerWidget {
                     vertical: 16.0, horizontal: 16.0),
                 child: ElevatedButton(
                     child: const Text('Login'),
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.blueAccent,
+                    ),
                     onPressed: () {
                       final newEmail = emailController.text;
                       final newPasswprd = passwordController.text;

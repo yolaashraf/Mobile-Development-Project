@@ -82,6 +82,9 @@ class _RegisterForm extends State<RegisterForm> {
                     vertical: 16.0, horizontal: 16.0),
                 child: ElevatedButton(
                   child: const Text('Sign Up'),
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.blueAccent,
+                  ),
                   onPressed: () {
                     final String newame = nameController.text;
                     final String newEmail = emailController.text;

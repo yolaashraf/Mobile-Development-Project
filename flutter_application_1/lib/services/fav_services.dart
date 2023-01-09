@@ -45,8 +45,7 @@ class Fav_Service {
             snapshot.docs.map((doc) => FavModel.fromJson(doc.data())).toList());
   }
 
-  // Future<void> delete(String userId,tripId) async {
-  //   await FirebaseFirestore.instance.collection('fav').where("userId" ,isEqualTo: userId)
-  //   doc(favId).delete();
-  // }
+  Future<void> removeFav(String favId) async {
+    await FirebaseFirestore.instance.collection('fav').doc(favId).delete();
+  }
 }

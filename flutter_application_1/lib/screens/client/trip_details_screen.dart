@@ -41,6 +41,7 @@ class TripDetails extends ConsumerStatefulWidget {
   final tripsdate;
   final edate;
   final pricee;
+  late String favid;
   // final fav;
 
   @override
@@ -82,13 +83,13 @@ class _TripDetailsState extends ConsumerState<TripDetails> {
 
   @override
   Widget build(BuildContext context) {
-    setState(() {
-      if (ref.watch(favItemStateProvider).contains(widget.tripid)) {
-        favcolor = Colors.red;
-      } else if (!ref.watch(favItemStateProvider).contains(widget.tripid)) {
-        favcolor = Colors.black;
-      }
-    });
+    // setState(() {
+    if (ref.watch(favItemStateProvider).contains(widget.tripid)) {
+      favcolor = Colors.red;
+    } else if (!ref.watch(favItemStateProvider).contains(widget.tripid)) {
+      favcolor = Colors.black;
+    }
+    // });
     return Scaffold(
       body: ListView(
         children: [
@@ -220,6 +221,32 @@ class _TripDetailsState extends ConsumerState<TripDetails> {
                 onPressed: () {
                   setState(() {
                     if (favcolor == Colors.red) {
+                      print('HEREEE');
+
+                      var allfavs = Fav_Service().viewAllFav(
+                          ref.watch(curentUserProvider).value!.userid);
+
+                      allfavs.forEach((favs) {
+                        // print(favs);
+                        if (!favs.isEmpty) {
+                          // print(favs.length.toString());
+                          favs.forEach((fav) {
+                            // print('hr;ll');
+                            if (fav.tripId == widget.tripid &&
+                                fav.userId ==
+                                    ref
+                                        .watch(curentUserProvider)
+                                        .value!
+                                        .userid) {
+                              widget.favid = fav.favId;
+                              // print(fav.favId);
+                            }
+                          });
+                          print("iddd " + widget.favid);
+                        }
+                      });
+                      Fav_Service().removeFav(widget.favid);
+
                       ref.watch(favItemStateProvider).remove(widget.tripid);
                       // Fav_Service().delete(favId);
                       // ref.watch(favItemStateProvider).clear();
@@ -227,17 +254,18 @@ class _TripDetailsState extends ConsumerState<TripDetails> {
                     } else if (favcolor == Colors.black) {
                       ref.watch(favItemStateProvider).add(widget.tripid);
 
-                      // Fav_Service().AddFav(
-                      //     tripId: widget.tripid,
-                      //     userId: userid,
-                      //     tripName: widget.tripname,
-                      //     eDate: widget.edate,
-                      //     price: widget.pricee,
-                      //     sDate: widget.tripsdate,
-                      //     tripdescription: widget.tripdescription,
-                      //     triplocation: widget.triplocation,
-                      //     tripImg: "assets/img1.jpeg");
-                      // favpressed = true;
+                      Fav_Service().AddFav(
+                          tripId: widget.tripid,
+                          userId: userid,
+                          tripName: widget.tripname,
+                          eDate: widget.edate,
+                          price: widget.pricee,
+                          sDate: widget.tripsdate,
+                          tripdescription: widget.tripdescription,
+                          triplocation: widget.triplocation,
+                          tripImg: "assets/img1.jpeg");
+                      print("anaa henaa");
+                      favpressed = true;
 
                       favcolor = Colors.red;
                     }

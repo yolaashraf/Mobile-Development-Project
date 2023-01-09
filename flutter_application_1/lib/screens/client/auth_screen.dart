@@ -20,7 +20,7 @@ class AuthScreen extends StatelessWidget {
                 Container(
                   height: MediaQuery.of(context).size.height * 0.5,
                   decoration: const BoxDecoration(
-                    color: Colors.blue,
+                    color: Color.fromARGB(255, 255, 255, 255),
                     borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(50),
                       bottomRight: Radius.circular(50),
@@ -30,7 +30,7 @@ class AuthScreen extends StatelessWidget {
                 Center(
                   child: Column(
                     children: <Widget>[
-                      const SizedBox(height: 65),
+                      // const SizedBox(height: 40),
                       const Text(
                         'Hello!',
                         style: TextStyle(
@@ -39,13 +39,27 @@ class AuthScreen extends StatelessWidget {
                             fontWeight: FontWeight.w600,
                             letterSpacing: 1.2),
                       ),
-                      Hero(
-                        tag: 'logoAnimation',
-                        child: Image.asset(
-                          'assets/download.png',
-                          height: 250,
-                        ),
-                      ),
+                      Container(
+                          // tag: 'logoAnimation',
+                          child: Stack(
+                        alignment: Alignment.bottomCenter,
+                        children: [
+                          Image.asset(
+                            'assets/logo.png',
+                            width: 400,
+                            height: 400,
+                          ),
+                          Positioned(
+                              height: 85,
+                              child: Text(
+                                'Booking.com',
+                                style: TextStyle(
+                                    fontSize: 30,
+                                    fontWeight: FontWeight.w600,
+                                    color: Colors.blueGrey),
+                              ))
+                        ],
+                      )),
                     ],
                   ),
                 ),
