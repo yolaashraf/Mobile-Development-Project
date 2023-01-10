@@ -4,6 +4,7 @@ import '../model/user.dart';
 import '../screens/client/auth_screen.dart';
 import '../screens/client/intro_screen.dart';
 import '../services/users_services.dart';
+import 'package:d_info/d_info.dart';
 
 class RegisterForm extends StatefulWidget {
   const RegisterForm({super.key});
@@ -89,11 +90,20 @@ class _RegisterForm extends State<RegisterForm> {
                     final String newame = nameController.text;
                     final String newEmail = emailController.text;
                     final String newPassword = passwordController.text;
-                    User_Service().creatUser(
-                        name: newame,
-                        email: newEmail,
-                        password: newPassword,
-                        type: 'client');
+
+                    if (newame.isEmpty ||
+                        newEmail.isEmpty ||
+                        newPassword.isEmpty) {
+                      DInfo.snackBarError(
+                          context, 'Please enter the required fields!');
+                    } else {
+                      User_Service().creatUser(
+                          name: newame,
+                          email: newEmail,
+                          password: newPassword,
+                          type: 'client');
+                    }
+
                     final form = _formKey.currentState;
                     if (form!.validate()) {
                       // form.save();
@@ -101,6 +111,7 @@ class _RegisterForm extends State<RegisterForm> {
                       // _user.save();
                       // _showDialog(context);
                       // Navigator.pop(context);
+
                       Navigator.push(context, MaterialPageRoute(
                         builder: ((context) {
                           return AuthScreen();
