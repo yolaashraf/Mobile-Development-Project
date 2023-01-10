@@ -45,12 +45,12 @@ class AuthForm extends ConsumerWidget {
               TextFormField(
                 controller: emailController,
                 decoration: const InputDecoration(labelText: 'Email'),
-                // validator: (value) {
-                //   if (value == null || value.isEmpty) {
-                //     return 'Please enter your Email';
-                //   }
-                //   return null;
-                // },
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter your Email';
+                  }
+                  return null;
+                },
               ),
               TextFormField(
                 controller: passwordController,
@@ -58,12 +58,12 @@ class AuthForm extends ConsumerWidget {
                 enableSuggestions: false,
                 autocorrect: false,
                 decoration: const InputDecoration(labelText: 'Password'),
-                // validator: (value) {
-                //   if (value == null || value.isEmpty) {
-                //     return 'Please enter your Password.';
-                //   }
-                //   return null;
-                // },
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter your Password.';
+                  }
+                  return null;
+                },
               ),
               Container(
                 padding: const EdgeInsets.symmetric(
@@ -100,28 +100,32 @@ class AuthForm extends ConsumerWidget {
                           }),
                           loading: () =>
                               const Center(child: CircularProgressIndicator()));
-
-                      if (check == true) {
-                        if (currentUser.value!.type == "client") {
-                          Navigator.push(context, MaterialPageRoute(
-                            builder: ((context) {
-                              return Home();
-                            }),
-                          ));
-                        } else if (currentUser.value!.type == "admin") {
-                          Navigator.push(context, MaterialPageRoute(
-                            builder: ((context) {
-                              return AdminHome();
-                            }),
-                          ));
-                        }
-
-                        // print("HEREEEE");
-
-                        // context.go('/Home');
-                      } else {
+                      if (newPasswprd.isEmpty || newEmail.isEmpty) {
                         DInfo.snackBarError(
-                            context, 'Incorrect email or password!');
+                            context, 'Please enter your email and password!');
+                      } else {
+                        if (check == true) {
+                          if (currentUser.value!.type == "client") {
+                            Navigator.push(context, MaterialPageRoute(
+                              builder: ((context) {
+                                return Home();
+                              }),
+                            ));
+                          } else if (currentUser.value!.type == "admin") {
+                            Navigator.push(context, MaterialPageRoute(
+                              builder: ((context) {
+                                return AdminHome();
+                              }),
+                            ));
+                          }
+
+                          // print("HEREEEE");
+
+                          // context.go('/Home');
+                        } else {
+                          DInfo.snackBarError(
+                              context, 'Incorrect email or password!');
+                        }
                       }
                       // _showDialog(context);
                     }),

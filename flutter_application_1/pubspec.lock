@@ -204,7 +204,7 @@ packages:
       name: go_router
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.5.1"
+    version: "6.0.1"
   google_api_headers:
     dependency: transitive
     description:
@@ -471,4 +471,4 @@ packages:
     version: "3.1.1"
 sdks:
   dart: ">=2.18.2 <3.0.0"
-  flutter: ">=3.0.0"
+  flutter: ">=3.3.0"
