@@ -1,23 +1,45 @@
 import 'package:flutter/material.dart';
 import '/widgets/date&time picker.dart';
+import '/widgets/end date&time picker.dart';
+import '../../services/trip_services.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_application_1/widgets/custom_TextField.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class AddTrip extends StatefulWidget {
+
+class AddTrip extends ConsumerStatefulWidget {
+  AddTrip({Key? key}) : super(key: key);
+
   static String id = 'AddTrip';
 
+
   @override
-  State<AddTrip> createState() => _AddTripState();
+  ConsumerState<AddTrip> createState() => _AddTripState();
 }
 
-class _AddTripState extends State<AddTrip> {
+class _AddTripState extends ConsumerState<AddTrip> {
+  
 
-   String _tripName='' ;
-   String _description='' ;
-   String _price='' ; 
-   String _tripId ='' ;
+
+
+   final tripNameController=TextEditingController() ;
+   final descriptionController=TextEditingController() ;
+   final priceController=TextEditingController(); 
+   final tripIdController =TextEditingController() ;
+   final imageLocationController=TextEditingController();
+   final locationController=TextEditingController();
+  //     final endDController=TextEditingController();
+  //  final starDController=TextEditingController();
+
+  //  List<Widget> _eDate=[];
+  //  DateTime _sDate=DateTime.now();
   
   final GlobalKey<FormState> _globalKey = GlobalKey<FormState>(); 
+
+
+  // setState((){
+  //   print('hj');
+  // });
 
   @override
   Widget build(BuildContext context) {
@@ -92,47 +114,73 @@ class _AddTripState extends State<AddTrip> {
                         // mainAxisAlignment: MainAxisAlignment.start,
                         children: <Widget>[
                           CustomTextField(
+                            controller:tripNameController,
                             // lable: 'Trip Name',
                             hint: 'Trip Name',
                             icon: Icons.hotel ,
-                            onClick: (value) {
-                              _tripName = value!;
-                            },
+                            // onClick: (value) {
+                            //   _tripName = value!;
+                            // },
                           ),
                           
                     
                           SizedBox(
                             height: 5,
                           ),
+                          // CustomTextField(
+                          //   controller:tripIdController,
+                          //   // lable: 'Trip Name',
+                          //   hint: 'Trip ID',
+                          //   icon: Icons.accessibility,
+                          //   // onClick: (value) {
+                          //   //   _tripId = value!;
+                          //   // },
+                          // ),
+                          // SizedBox(
+                          //   height: 5,
+                          // ),
                           CustomTextField(
-                            // lable: 'Trip Name',
-                            hint: 'Trip ID',
-                            icon: Icons.accessibility,
-                            onClick: (value) {
-                              _tripId = value!;
-                            },
-                          ),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          CustomTextField(
+                            controller:descriptionController,
                             // lable: 'Trip Name',
                             hint: 'Trip Description',
                             icon: Icons.description  ,
-                            onClick: (value) {
-                              _description = value!;
-                            },
+                            // onClick: (value) {
+                            //   _description = value!;
+                            // },
                           ),
                           SizedBox(
                             height: 5,
                           ),
                           CustomTextField(
+                            controller:priceController,
                             // lable: 'Trip Name',
                             hint: 'Trip Price',
                             icon: Icons.price_check_outlined ,
-                            onClick: (value) {
-                              _price = value!;
-                            },
+                            // onClick: (value) {
+                            //   _price = value!;
+                            // },
+                          ),
+                          SizedBox(
+                            height: 5,
+                          ),
+                          CustomTextField(
+                            controller:imageLocationController,
+                            // onClick: (value) {
+                            //   _imageLocation = value!;
+                            // },
+                            hint: 'Trip image Location',
+                            icon: Icons.image ,
+                          ),
+                          SizedBox(
+                            height: 5,
+                          ),
+                          CustomTextField(
+                            controller:locationController,
+                            // onClick: (value) {
+                            //   _location = value!;
+                            // },
+                            hint: 'Trip  Location',
+                            icon: Icons.location_city ,
                           ),
                           SizedBox(
                             height: 5,
@@ -144,6 +192,10 @@ class _AddTripState extends State<AddTrip> {
                               
                             ),
                             DateTimePicker(),
+                            
+                            // Text(),
+                            
+                            
                           ]),
                           SizedBox(
                             height: 5,
@@ -153,30 +205,18 @@ class _AddTripState extends State<AddTrip> {
                               'End Date : ',
                               style: TextStyle(fontSize: 20),
                             ),
-                            DateTimePicker(),
+                            eDateTimePicker(),
                           ]),
                           SizedBox(
                             height: 5,
                           ),
-                          // RaisedButton(
-                          //   onPressed: () {
-                          //     if (_globalKey.currentState.validate()) {
-                          //       _globalKey.currentState.save();
-                    
-                          //       _store.addTrip(Product(
-                          //           pName: _name,
-                          //           pPrice: _price,
-                          //           pDescription: _description,
-                          //           pLocation: _imageLocation,
-                          //           pCategory: _category));
-                          //     }
-                          //   },
-                          //   child: Text('Add Product'),
+                          
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
                               TextButton(
                                   onPressed: () {
+                                   
                                     context.go('/AdminHome');
                                   },
                                   child: Text('Back')),
@@ -184,7 +224,26 @@ class _AddTripState extends State<AddTrip> {
                               TextButton(
                                 onPressed: (){
                                    if (_globalKey.currentState!.validate()) {
-                                         _globalKey.currentState!.reset();
+                                         
+
+                                         final String newName=tripNameController.text;
+                                         final String newDescription=descriptionController.text;
+                                         final String newPrice=priceController.text;
+                                         final String newImage=imageLocationController.text;
+                                         final String newLocation=locationController.text;
+
+                                         Trip_Service().AddTrip(
+                                              tripName: newName,
+                                              endDate: ref.watch(edateProvider).toString(),
+                                              price: newPrice,
+                                              startDate:ref.watch(dateProvider).toString(),
+                                              description: newDescription,
+                                               img: newImage,
+                                              location:newLocation,
+                                              // 
+                                              );
+                                     _globalKey.currentState!.reset();
+
 
                                     }
                                 },
