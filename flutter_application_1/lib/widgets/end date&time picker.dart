@@ -3,20 +3,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
   late DateTime datetime;
 
-final dateProvider = StateProvider<DateTime>((ref) {
+final edateProvider = StateProvider<DateTime>((ref) {
    return datetime;});
    
 
-class DateTimePicker extends ConsumerStatefulWidget {
+class eDateTimePicker extends ConsumerStatefulWidget {
   
   
-   DateTimePicker({super.key});
+   eDateTimePicker({super.key});
 
   @override
-  ConsumerState<DateTimePicker> createState() => _DateTimePickerState();
+  ConsumerState<eDateTimePicker> createState() => _eDateTimePickerState();
 }
 
-class _DateTimePickerState extends ConsumerState<DateTimePicker> {
+class _eDateTimePickerState extends ConsumerState<eDateTimePicker> {
     
     DateTime dateTime=DateTime.now();
 
@@ -68,7 +68,7 @@ class _DateTimePickerState extends ConsumerState<DateTimePicker> {
                           ); 
 
                           datetime=newDateTime; 
-                          ref.read(dateProvider.notifier).state=datetime;
+                          ref.read(edateProvider.notifier).state=datetime;
 
 
 

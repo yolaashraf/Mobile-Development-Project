@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 class CustomTextField extends StatelessWidget {
@@ -6,7 +8,11 @@ class CustomTextField extends StatelessWidget {
   // final String lable;, required this.lable
 
   final IconData icon;
-final FormFieldSetter<String>? onClick;
+  
+  // var controller;
+  
+  final TextEditingController controller;
+// final FormFieldSetter<String>? onClick;, required this.onClick
 
 
   String ?_errorMessage(String str)
@@ -21,7 +27,7 @@ final FormFieldSetter<String>? onClick;
   }
   
   CustomTextField(
-      { required this.icon,required this.hint, required this.onClick});
+      { required this.icon,required this.hint , required this.controller});
   @override
   Widget build(BuildContext context) {
    
@@ -29,6 +35,8 @@ final FormFieldSetter<String>? onClick;
 
     padding: const EdgeInsets.all(10.0),
     child: TextFormField(
+
+      controller: controller,
       // maxLines: 5,
       validator:(value) {
         if(value!.isEmpty){
@@ -36,7 +44,7 @@ final FormFieldSetter<String>? onClick;
         }
         
       } ,
-      onSaved: onClick,
+      // onSaved: onClick,
       decoration: InputDecoration(
           // labelText: lable ,
           hintText: hint,
