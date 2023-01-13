@@ -5,14 +5,12 @@ import 'package:flutter/material.dart';
 class CustomTextField extends StatelessWidget {
 
   final String hint;
-  // final String lable;, required this.lable
-
   final IconData icon;
-  
-  // var controller;
+  final bool ot;
   
   final TextEditingController controller;
-// final FormFieldSetter<String>? onClick;, required this.onClick
+
+
 
 
   String ?_errorMessage(String str)
@@ -22,12 +20,14 @@ class CustomTextField extends StatelessWidget {
       case 'Trip Name' :return 'Trip name is empty';
       case 'Trip Description' :return 'Trip Description is empty';
       case 'Trip Price' :return 'Trip Price is empty';
-      case 'Trip ID' :return 'Trip name is ID';
+      // case 'Trip ID' :return 'Trip name is ID';
+      case 'Name' :return 'Name is Empty';
+      case 'Email' :return 'Email is Empty';
     }
   }
   
   CustomTextField(
-      { required this.icon,required this.hint , required this.controller});
+      { required this.icon,required this.hint , required this.controller, required this.ot});
   @override
   Widget build(BuildContext context) {
    
@@ -44,7 +44,7 @@ class CustomTextField extends StatelessWidget {
         }
         
       } ,
-      // onSaved: onClick,
+      obscureText: ot,
       decoration: InputDecoration(
           // labelText: lable ,
           hintText: hint,

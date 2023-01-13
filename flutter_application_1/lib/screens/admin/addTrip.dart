@@ -114,7 +114,8 @@ class _AddTripState extends ConsumerState<AddTrip> {
                         // mainAxisAlignment: MainAxisAlignment.start,
                         children: <Widget>[
                           CustomTextField(
-                            controller:tripNameController,
+                            controller:tripNameController, 
+                            ot: false ,
                             // lable: 'Trip Name',
                             hint: 'Trip Name',
                             icon: Icons.hotel ,
@@ -140,7 +141,8 @@ class _AddTripState extends ConsumerState<AddTrip> {
                           //   height: 5,
                           // ),
                           CustomTextField(
-                            controller:descriptionController,
+                            controller:descriptionController, 
+                            ot: false ,
                             // lable: 'Trip Name',
                             hint: 'Trip Description',
                             icon: Icons.description  ,
@@ -152,7 +154,8 @@ class _AddTripState extends ConsumerState<AddTrip> {
                             height: 5,
                           ),
                           CustomTextField(
-                            controller:priceController,
+                            controller:priceController, 
+                            ot: false ,
                             // lable: 'Trip Name',
                             hint: 'Trip Price',
                             icon: Icons.price_check_outlined ,
@@ -164,7 +167,8 @@ class _AddTripState extends ConsumerState<AddTrip> {
                             height: 5,
                           ),
                           CustomTextField(
-                            controller:imageLocationController,
+                            controller:imageLocationController, 
+                            ot: false ,
                             // onClick: (value) {
                             //   _imageLocation = value!;
                             // },
@@ -175,7 +179,8 @@ class _AddTripState extends ConsumerState<AddTrip> {
                             height: 5,
                           ),
                           CustomTextField(
-                            controller:locationController,
+                            controller:locationController, 
+                            ot: false ,
                             // onClick: (value) {
                             //   _location = value!;
                             // },
