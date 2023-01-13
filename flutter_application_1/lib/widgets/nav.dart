@@ -17,6 +17,7 @@ import '../screens/client/intro_screen.dart';
 import '../screens/client/auth_screen.dart';
 import '../screens/admin/addTrip.dart';
 import '../screens/admin/edit_trip.dart';
+import '../screens/admin/add admin.dart';
 import '../widgets/theme.dart';
 
 import 'package:riverpod/riverpod.dart';
@@ -51,6 +52,7 @@ class MyApp extends ConsumerWidget {
             builder: (BuildContext context, GoRouterState state) =>
                 EditProfile(),
           ),
+          
           GoRoute(
             path:
                 'TripDetails/:tripid/:tripdescription/:price/:triplocation/:tripname/:tripsdate/:edate',
@@ -85,6 +87,10 @@ class MyApp extends ConsumerWidget {
           GoRoute(
             path: 'AdminHome',
             builder: (BuildContext context, GoRouterState state) => AdminHome(),
+          ),
+          GoRoute(
+            path: 'AddAdmin',
+            builder: (BuildContext context, GoRouterState state) => AddAdmin(),
           )
         ],
         path: '/',

@@ -29,6 +29,10 @@ class AdminHome extends StatelessWidget {
             onPressed: () => context.go('/EditTrip'),
             child: Text('Edit Trip'),
           ),
+          ElevatedButton(
+            onPressed: () => context.go('/AddAdmin'),
+            child: Text('Add Admin'),
+          ),
         ],
       ),
     );
