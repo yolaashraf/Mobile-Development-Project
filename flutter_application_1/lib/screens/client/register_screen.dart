@@ -56,7 +56,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           Positioned(
                               height: 85,
                               child: Text(
-                                'Booking.com',
+                                'Visitarea',
                                 style: TextStyle(
                                     fontSize: 30,
                                     fontWeight: FontWeight.w600,

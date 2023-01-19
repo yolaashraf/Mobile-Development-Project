@@ -5,6 +5,7 @@ import '../model/trip.dart';
 import 'package:riverpod/riverpod.dart';
 import 'package:flutter/material.dart';
 import 'trip_row_wigdet.dart';
+import 'package:go_router/go_router.dart';
 
 class homeWidget extends StatefulWidget {
   const homeWidget({super.key});

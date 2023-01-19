@@ -18,7 +18,7 @@ final favItemStateProvider = StateProvider<List<String>>(
     return ids;
   },
 );
-late String userid;
+// late String userid;
 
 class TripDetails extends ConsumerStatefulWidget {
   TripDetails({
@@ -70,7 +70,7 @@ class _TripDetailsState extends ConsumerState<TripDetails> {
   bool BookPress = true;
 
   int selectionCount = 0;
-  late var id;
+  // late var id;
 
   // final tripimg;
   // final colorStateProvider = StateProvider<Color>((ref) => Colors.green);
@@ -95,7 +95,7 @@ class _TripDetailsState extends ConsumerState<TripDetails> {
         children: [
           Consumer(
             builder: (context, ref, child) {
-              userid = ref.watch(curentUserProvider).value!.userid;
+              // userid = ref.watch(curentUserProvider).value!.userid;
               return Container();
             },
           ),
@@ -256,7 +256,7 @@ class _TripDetailsState extends ConsumerState<TripDetails> {
 
                       Fav_Service().AddFav(
                           tripId: widget.tripid,
-                          userId: userid,
+                          userId: ref.watch(curentUserProvider).value!.userid,
                           tripName: widget.tripname,
                           eDate: widget.edate,
                           price: widget.pricee,
@@ -290,7 +290,7 @@ class _TripDetailsState extends ConsumerState<TripDetails> {
                           peopleCount: selectionCount.toString(),
                           location: widget.triplocation,
                           description: widget.tripdescription,
-                          userId: id,
+                          userId: ref.watch(curentUserProvider).value!.userid,
                           tripId: widget.tripid,
                           startDate: widget.tripsdate,
                           endDate: widget.edate);
