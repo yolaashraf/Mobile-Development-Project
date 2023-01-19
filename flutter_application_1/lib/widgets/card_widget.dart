@@ -74,7 +74,7 @@ class cardWidget extends StatelessWidget {
                             ElevatedButton(
                               onPressed: () {
                                 context.go(
-                                    '/TripDetails/$tripId/$tripdescription/$price/$triplocation/$tripname/$sDate/$eDate/');
+                                    '/TripDetails/$tripId/$tripdescription/$price/$triplocation/$tripname/$sDate/$eDate/${imgpath.replaceAll("/", "-")}');
                               },
                               style: ButtonStyle(
                                   backgroundColor:

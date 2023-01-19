@@ -52,10 +52,9 @@ class MyApp extends ConsumerWidget {
             builder: (BuildContext context, GoRouterState state) =>
                 EditProfile(),
           ),
-          
           GoRoute(
             path:
-                'TripDetails/:tripid/:tripdescription/:price/:triplocation/:tripname/:tripsdate/:edate',
+                "TripDetails/:tripid/:tripdescription/:price/:triplocation/:tripname/:tripsdate/:edate/:img",
             builder: (BuildContext context, GoRouterState state) => TripDetails(
               tripid: state.params['tripid']!,
               tripdescription: state.params['tripdescription']!,
@@ -64,6 +63,7 @@ class MyApp extends ConsumerWidget {
               triplocation: state.params['triplocation']!,
               tripname: state.params['tripname']!,
               edate: state.params['edate']!,
+              img: state.params['img']!,
               // tripimg: state.params['tripimg']!,
             ),
           ),

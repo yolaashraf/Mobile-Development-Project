@@ -29,12 +29,12 @@ class _DraweWigdetState extends State<DraweWigdet> {
               ),
             ),
           ),
-          ListTile(
-            title: Text('Add Events '),
-            onTap: () {
-              context.go('/AddEvents');
-            },
-          ),
+          // ListTile(
+          //   title: Text('Add Events '),
+          //   onTap: () {
+          //     context.go('/AddEvents');
+          //   },
+          // ),
           ListTile(
             title: Text('My History'),
             onTap: () {

@@ -30,6 +30,7 @@ class TripDetails extends ConsumerStatefulWidget {
     required this.tripsdate,
     required this.edate,
     required this.pricee,
+    required this.img,
     // required this.fav,
     // required this.tripimg
   }) : super(key: key);
@@ -42,6 +43,7 @@ class TripDetails extends ConsumerStatefulWidget {
   final edate;
   final pricee;
   late String favid;
+  String img;
   // final fav;
 
   @override
@@ -104,7 +106,7 @@ class _TripDetailsState extends ConsumerState<TripDetails> {
             height: 200,
             decoration: const BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage("assets/mountain.png"), fit: BoxFit.cover),
+                  image: AssetImage('assets/mountain.png'), fit: BoxFit.cover),
             ),
           ),
           SizedBox(
@@ -112,6 +114,7 @@ class _TripDetailsState extends ConsumerState<TripDetails> {
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 widget.tripname,
@@ -263,7 +266,7 @@ class _TripDetailsState extends ConsumerState<TripDetails> {
                           sDate: widget.tripsdate,
                           tripdescription: widget.tripdescription,
                           triplocation: widget.triplocation,
-                          tripImg: "assets/img1.jpeg");
+                          tripImg: widget.img.toString().replaceAll("-", "/"));
                       print("anaa henaa");
                       favpressed = true;
 
