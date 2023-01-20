@@ -4,6 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/widgets/adminform.dart';
 import 'package:go_router/go_router.dart';
 import 'package:d_info/d_info.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 
 
 
@@ -15,7 +18,7 @@ class editAdmin extends StatefulWidget {
 }
 
 class _editAdminState extends State<editAdmin> {
-             final GlobalKey<FormState> _globalKey = GlobalKey<FormState>(); 
+             
 
  
   @override
@@ -59,23 +62,9 @@ class _editAdminState extends State<editAdmin> {
           ],
         ),
          Positioned(
-           child: Form(
-                 key: _globalKey,
-                 child: adminform(),
-                 
-               ),
+           child: adminform(),
          ),
-        TextButton(
-            onPressed: () {
-              if (_globalKey.currentState!.validate()) {
-              context.go('/adminHome');
-              DInfo.snackBarSuccess(context, 'Edit Success');
-              }
-            },
-            child: Text(
-              'Edit',
-              style: TextStyle(color: Colors.blue),
-            )),
+        
       ],
     );
   }

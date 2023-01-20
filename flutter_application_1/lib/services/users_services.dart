@@ -21,4 +21,15 @@ class User_Service {
         (snapshot) =>
             snapshot.docs.map((doc) => User.fromJson(doc.data())).toList());
   }
+
+  void UpdateAdmin({
+    required userId,
+    required name,
+    required email,
+    required password
+  })async {
+    final docUser=FirebaseFirestore.instance.collection(('users')).doc(userId);
+    await docUser.update({"email":email , "name":name , "password":password});
+  }
+
 }
