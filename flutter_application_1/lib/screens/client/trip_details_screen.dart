@@ -18,7 +18,7 @@ final favItemStateProvider = StateProvider<List<String>>(
     return ids;
   },
 );
-late String userid;
+// late String userid;
 
 class TripDetails extends ConsumerStatefulWidget {
   TripDetails({
@@ -30,6 +30,7 @@ class TripDetails extends ConsumerStatefulWidget {
     required this.tripsdate,
     required this.edate,
     required this.pricee,
+    required this.img,
     // required this.fav,
     // required this.tripimg
   }) : super(key: key);
@@ -42,6 +43,7 @@ class TripDetails extends ConsumerStatefulWidget {
   final edate;
   final pricee;
   late String favid;
+  String img;
   // final fav;
 
   @override
@@ -70,7 +72,7 @@ class _TripDetailsState extends ConsumerState<TripDetails> {
   bool BookPress = true;
 
   int selectionCount = 0;
-  late var id;
+  // late var id;
 
   // final tripimg;
   // final colorStateProvider = StateProvider<Color>((ref) => Colors.green);
@@ -95,7 +97,7 @@ class _TripDetailsState extends ConsumerState<TripDetails> {
         children: [
           Consumer(
             builder: (context, ref, child) {
-              userid = ref.watch(curentUserProvider).value!.userid;
+              // userid = ref.watch(curentUserProvider).value!.userid;
               return Container();
             },
           ),
@@ -104,7 +106,7 @@ class _TripDetailsState extends ConsumerState<TripDetails> {
             height: 200,
             decoration: const BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage("assets/mountain.png"), fit: BoxFit.cover),
+                  image: AssetImage('assets/mountain.png'), fit: BoxFit.cover),
             ),
           ),
           SizedBox(
@@ -112,6 +114,7 @@ class _TripDetailsState extends ConsumerState<TripDetails> {
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 widget.tripname,
@@ -256,14 +259,14 @@ class _TripDetailsState extends ConsumerState<TripDetails> {
 
                       Fav_Service().AddFav(
                           tripId: widget.tripid,
-                          userId: userid,
+                          userId: ref.watch(curentUserProvider).value!.userid,
                           tripName: widget.tripname,
                           eDate: widget.edate,
                           price: widget.pricee,
                           sDate: widget.tripsdate,
                           tripdescription: widget.tripdescription,
                           triplocation: widget.triplocation,
-                          tripImg: "assets/img1.jpeg");
+                          tripImg: widget.img.toString().replaceAll("-", "/"));
                       print("anaa henaa");
                       favpressed = true;
 
@@ -290,7 +293,7 @@ class _TripDetailsState extends ConsumerState<TripDetails> {
                           peopleCount: selectionCount.toString(),
                           location: widget.triplocation,
                           description: widget.tripdescription,
-                          userId: id,
+                          userId: ref.watch(curentUserProvider).value!.userid,
                           tripId: widget.tripid,
                           startDate: widget.tripsdate,
                           endDate: widget.edate);

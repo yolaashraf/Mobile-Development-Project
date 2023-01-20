@@ -64,7 +64,7 @@ class customeRow extends StatelessWidget {
                   child: ElevatedButton(
                     onPressed: () {
                       String path =
-                          '/TripDetails/$tripid/$tripdescription/$price/$triplocation/$tripname/$sDate/$eDate/';
+                          "/TripDetails/$tripid/$tripdescription/$price/$triplocation/$tripname/$sDate/$eDate/${imgpath.replaceAll("/", "-")}";
                       context.go("$path");
                       // /${tripdescription}/${price}/${sDate}/${location}/${tripname}/${eDate}/${imgpath}');
                     },

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/model/user.dart';
 import 'package:flutter_application_1/widgets/auth_form.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../widgets/search_widget.dart';
 import '../../widgets/trip_row_wigdet.dart';
 import '../../services/trip_services.dart';
 import '../../model/trip.dart';
@@ -68,6 +69,18 @@ class _HomeState extends State<Home> {
             ]),
         drawer: DraweWigdet(),
         appBar: AppBar(
+          actions: [
+            IconButton(
+              onPressed: () {
+                // method to show the search bar
+                showSearch(
+                    context: context,
+                    // delegate to customize the search bar
+                    delegate: CustomSearchDelegate());
+              },
+              icon: const Icon(Icons.search),
+            ),
+          ],
           title: Text(
             appbars[currentIndex],
             textAlign: TextAlign.center,
