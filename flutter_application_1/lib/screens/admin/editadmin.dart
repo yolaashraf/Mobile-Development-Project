@@ -50,7 +50,7 @@ class _editAdminState extends State<editAdmin> {
                   borderRadius: BorderRadius.all(Radius.circular(1000)),
                   border: Border.all(color: Colors.white, width: 30),
                   image: DecorationImage(
-                    image: AssetImage("assets/profile2.png"),
+                    image: AssetImage("assets/raw4na.jpg"),
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -67,8 +67,10 @@ class _editAdminState extends State<editAdmin> {
          ),
         TextButton(
             onPressed: () {
+              if (_globalKey.currentState!.validate()) {
               context.go('/adminHome');
               DInfo.snackBarSuccess(context, 'Edit Success');
+              }
             },
             child: Text(
               'Edit',

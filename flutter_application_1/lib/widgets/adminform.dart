@@ -26,12 +26,19 @@ class adminform extends ConsumerWidget {
                       size: 30,
                     ),
                     SizedBox(
-                      width: 200,
+                      width: 250,
                       child: TextFormField(
                         initialValue:ref.watch(curentUserProvider).value!.name,
                         decoration: InputDecoration(
                           hintText: 'Name',
-                        ),
+                          
+                          ),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Please enter your name';
+                            }
+                            return null;
+                          },
                       ),
                     ),
                   ],
@@ -45,13 +52,26 @@ class adminform extends ConsumerWidget {
                       size: 30,
                     ),
                     SizedBox(
-                      width: 200,
+                      width: 250,
                       child: TextFormField(
                         initialValue: ref.watch(curentUserProvider).value!.password,
                         decoration: InputDecoration(
                           hintText: 'Password',
                         ),
+                        validator: (value) {
+                          // RegExp regex =
+                          // RegExp(r'^(?=.*\d)(?=.*?[4-]) $');
+                              if (value == null || value.isEmpty) {
+                              return 'Please enter your password';
+                            }
+                              if (value.length < 5) {
+                                return 'Must be more than 5 charater and at least 3 digit';
+                              }
+                              
+                              return null;
+                          },
                       ),
+                      
                     ),
                   ],
                 ),
@@ -65,12 +85,21 @@ class adminform extends ConsumerWidget {
                       size: 30,
                     ),
                     SizedBox(
-                      width: 200,
+                      width: 250,
                       child: TextFormField(
                         initialValue:ref.watch(curentUserProvider).value!.email,
                         decoration: InputDecoration(
                           hintText: 'Email' ,
                         ),
+                        validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Please enter your email';
+                            }
+                            if(!value.contains("@")){
+                              return ("Email should contains @");
+                            }
+                            return null;
+                          },
                       ),
                     ),
                   ],
@@ -80,13 +109,6 @@ class adminform extends ConsumerWidget {
           
         );
       
-    // TextButton(
-    //     onPressed: () {
-    //       // context.go('/EditProfile');
-    //     },
-    //     child: Text(
-    //       'Edit',
-    //       style: TextStyle(color: Colors.blue),
-    //     ));
+   
   }
 }
