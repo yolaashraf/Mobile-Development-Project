@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/screens/admin/adminProfile.dart';
+import 'package:flutter_application_1/screens/admin/editadmin.dart';
 import 'package:flutter_application_1/screens/client/intro_screen.dart';
 import 'package:flutter_application_1/widgets/auth_form.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -16,6 +18,7 @@ import '../screens/client/trip_details_screen.dart';
 import '../screens/client/intro_screen.dart';
 import '../screens/client/auth_screen.dart';
 import '../screens/admin/addTrip.dart';
+import '../screens/admin/editadmin.dart';
 import '../screens/admin/edit_trip.dart';
 import '../screens/admin/add admin.dart';
 import '../widgets/theme.dart';
@@ -83,6 +86,10 @@ class MyApp extends ConsumerWidget {
           GoRoute(
             path: 'EditTrip',
             builder: (BuildContext context, GoRouterState state) => EditTrip(),
+          ),
+          GoRoute(
+            path: 'EditAdmin',
+            builder: (BuildContext context, GoRouterState state) => adminProfile(),
           ),
           GoRoute(
             path: 'AdminHome',

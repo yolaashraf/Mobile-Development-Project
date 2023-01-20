@@ -171,7 +171,7 @@ class _AddAdminState extends State<AddAdmin> {
                                               
                                               // 
                                               );
-                                     _globalKey.currentState!.reset();
+                                     _globalKey.currentState!.save();
 
 
                                     }
