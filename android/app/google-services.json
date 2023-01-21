@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "25554025486",
+    "project_id": "onlinebooking-5e391",
+    "storage_bucket": "onlinebooking-5e391.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:25554025486:android:ddee07faa53669bd56905f",
+        "android_client_info": {
+          "package_name": "eg.edu.miuegypt.yola1906219.mdproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "25554025486-oi8rg5a801p4b2691f0u3fe8id6fuvr2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAvLmS2LqI8N0fLvyQq90PUbD85Po9QIJI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "25554025486-oi8rg5a801p4b2691f0u3fe8id6fuvr2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
