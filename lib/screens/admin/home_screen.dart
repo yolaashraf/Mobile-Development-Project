@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/model/user.dart';
-import 'package:flutter_application_1/screens/client/mapScreen.dart';
 import 'package:flutter_application_1/widgets/auth_form.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../widgets/search_widget.dart';
@@ -23,8 +22,8 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   int currentIndex = 1;
-  final screens = [Fav(), homeWidget(), MapScreen(), ProfileWidget()];
-  final appbars = ['Favorite', 'Home', 'Map', 'Profile'];
+  final screens = [Fav(), homeWidget(), ProfileWidget()];
+  final appbars = ['Favorite', 'Home', 'Profile'];
   @override
   Widget build(BuildContext context) {
     print(currentIndex);
@@ -53,8 +52,6 @@ class _HomeState extends State<Home> {
     return Scaffold(
         body: screens[currentIndex],
         bottomNavigationBar: BottomNavigationBar(
-            selectedItemColor: Colors.black,
-            unselectedItemColor: Colors.grey,
             currentIndex: currentIndex,
             onTap: (index) {
               setState(() {
@@ -67,7 +64,6 @@ class _HomeState extends State<Home> {
                 label: 'favourites',
               ),
               BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-              BottomNavigationBarItem(icon: Icon(Icons.map), label: 'Map'),
               BottomNavigationBarItem(
                   icon: Icon(Icons.person), label: 'Account')
             ]),

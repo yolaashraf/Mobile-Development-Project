@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/services/users_services.dart';
+import 'package:flutter_pw_validator/flutter_pw_validator.dart';
 import '../model/user.dart';
 import '../screens/client/auth_screen.dart';
 import '../screens/client/intro_screen.dart';
@@ -46,11 +47,14 @@ class _RegisterForm extends State<RegisterForm> {
                 controller: emailController,
                 decoration: const InputDecoration(labelText: 'Email'),
                 validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter your Email';
-                  }
-                  return null;
-                },
+                            if (value == null || value.isEmpty) {
+                              return 'Please enter your email';
+                            }
+                            if(!value.contains("@")){
+                              return ("Email should contains @");
+                            }
+                            return null;
+                          },
                 // onSaved: (val) => setState(() => _user.email = val!),
               ),
               TextFormField(
@@ -67,6 +71,21 @@ class _RegisterForm extends State<RegisterForm> {
                 },
                 // onSaved: (val) => setState(() => _user.password = val!),
               ),
+               FlutterPwValidator(
+                              controller: passwordController,
+                              minLength: 6,
+                              numericCharCount: 3,
+                              width: 300,
+                              height: 50,
+                              onSuccess: () {
+                                // print("MATCHED");
+                                // ScaffoldMessenger.of(context).showSnackBar(new SnackBar(
+                                //     content: new Text("Password is matched")));
+                              },
+                              onFail: () {
+                                // print("NOT MATCHED");
+                              },
+                          ),
               // TextFormField(
               //   decoration: const InputDecoration(labelText: 'Mobile'),
               //   validator: (value) {
@@ -84,7 +103,7 @@ class _RegisterForm extends State<RegisterForm> {
                 child: ElevatedButton(
                   child: const Text('Sign Up'),
                   style: ElevatedButton.styleFrom(
-                    primary: Colors.blueAccent,
+                    backgroundColor: Colors.blueAccent,
                   ),
                   onPressed: () {
                     final String newame = nameController.text;

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/screens/admin/adminProfile.dart';
 import 'package:flutter_application_1/screens/client/intro_screen.dart';
 import 'package:flutter_application_1/widgets/auth_form.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -81,10 +82,10 @@ class MyApp extends ConsumerWidget {
             path: 'AddTrip',
             builder: (BuildContext context, GoRouterState state) => AddTrip(),
           ),
-          GoRoute(
-            path: 'EditTrip',
-            builder: (BuildContext context, GoRouterState state) => EditTrip(),
-          ),
+          // GoRoute(
+          //   path: 'EditTrip',
+          //   builder: (BuildContext context, GoRouterState state) => EditTrip(),
+          // ),
           GoRoute(
             path: 'AdminHome',
             builder: (BuildContext context, GoRouterState state) => AdminHome(),
@@ -92,7 +93,12 @@ class MyApp extends ConsumerWidget {
           GoRoute(
             path: 'AddAdmin',
             builder: (BuildContext context, GoRouterState state) => AddAdmin(),
-          )
+          ),
+          GoRoute(
+            path: 'EditAdmin',
+            builder: (BuildContext context, GoRouterState state) =>
+                adminProfile(),
+          ),
         ],
         path: '/',
         builder: (BuildContext context, GoRouterState state) => IntroScreen(),
@@ -110,8 +116,7 @@ class MyApp extends ConsumerWidget {
       themeMode: ref.watch(themeProvider) ? ThemeMode.dark : ThemeMode.light,
       theme: MyThemes.lightTheme,
       darkTheme: MyThemes.darkTheme,
-      builder: (context, child) => ResponsiveWrapper.builder(
-          child,
+      builder: (context, child) => ResponsiveWrapper.builder(child,
           maxWidth: 1200,
           minWidth: 480,
           defaultScale: true,
